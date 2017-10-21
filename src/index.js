@@ -1,23 +1,24 @@
 import './index.css';
 import _ from 'lodash';
-// import axios from 'axios';
 import registerServiceWorker from './registerServiceWorker';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import SearchBar from './components/search_bar';
-import VideoDetail from './components/video_detail';
-// import Page from './components/pagination/page';
+import SearchBar from './components/Search_Bar';
+import SearchResult from './components/Search_Result';
+import Pagination from './components/Pagination';
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            videos: [],
+            results: [],
+            pageOfItems: []
         };
 
+        // bind function in constructor instead of render (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md)
+        this.onChangePage = this.onChangePage.bind(this);
     }
-
 
     querySearch(term) {
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -31,14 +32,14 @@ class App extends Component {
             .then(respone => respone.json())
             .then(data => {
                 this.setState({
-                    videos: data[1]
+                    results: data[1]
                 });
             }).then(() => {
             fetch(proxyUrl + targetUrl_2)
                 .then((response) => response.json())
                 .then((responseData) => {
                     this.setState(prevState => ({
-                        videos: [...prevState.videos, ...responseData[1]]
+                        results: [...prevState.results, ...responseData[1]]
                     }))
                 })
         }).then(() => {
@@ -46,7 +47,7 @@ class App extends Component {
                 .then((response) => response.json())
                 .then((responseData) => {
                     this.setState(prevState => ({
-                        videos: [...prevState.videos, ...responseData[1]]
+                        results: [...prevState.results, ...responseData[1]]
                     }))
                 })
         }).then(() => {
@@ -54,7 +55,7 @@ class App extends Component {
                 .then((response) => response.json())
                 .then((responseData) => {
                     this.setState(prevState => ({
-                        videos: [...prevState.videos, ...responseData[1]]
+                        results: [...prevState.results, ...responseData[1]]
                     }))
                 })
         }).then(() => {
@@ -62,13 +63,17 @@ class App extends Component {
                 .then((response) => response.json())
                 .then((responseData) => {
                     this.setState(prevState => ({
-                        videos: [...prevState.videos, ...responseData[1]]
+                        results: [...prevState.results, ...responseData[1]]
                     }))
                 })
         })
 
 
+    }
 
+    onChangePage(pageOfItems) {
+        // update state with new page of items
+        this.setState({pageOfItems: pageOfItems});
     }
 
     render() {
@@ -76,27 +81,19 @@ class App extends Component {
             this.querySearch(term)
         }, 400);
 
+
         return (
             <div>
-                <SearchBar onSearchTermChange={querySearch}/>
-                <VideoDetail video={this.state.videos}/>
-
-                {/*<Page />*/}
-
-
+                <div className="text-center">
+                    <SearchBar onSearchTermChange={querySearch}/>
+                    <SearchResult result={this.state.pageOfItems}/>
+                    <Pagination items={this.state.results} onChangePage={this.onChangePage}/>
+                </div>
             </div>
         );
     }
 }
-;
 
 
-ReactDOM
-    .render(
-        <App />,
-        document
-            .getElementById(
-                'root'
-            ))
-;
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

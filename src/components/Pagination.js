@@ -1,5 +1,5 @@
-import React  from 'react';
-import PropTypes from 'prop-type';
+import React from 'react';
+import PropTypes from 'prop-types';
 const _ = require('lodash');
 
 const propTypes = {
@@ -8,9 +8,9 @@ const propTypes = {
     initialPage: PropTypes.number
 }
 
-const defaultProps = {
-    initialPage: 1
-}
+// const defaultProps = {
+//     initialPage: 1
+// }
 
 class Pagination extends React.Component {
     constructor(props) {
@@ -58,7 +58,7 @@ class Pagination extends React.Component {
         currentPage = currentPage || 1;
 
         // default page size is 10
-        pageSize = pageSize || 10;
+        pageSize = pageSize || 20;
 
         // calculate total pages
         var totalPages = Math.ceil(totalItems / pageSize);
@@ -136,5 +136,5 @@ class Pagination extends React.Component {
 }
 
 Pagination.propTypes = propTypes;
-Pagination.defaultProps
+// Pagination.defaultProps
 export default Pagination;
