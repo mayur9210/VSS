@@ -21,7 +21,7 @@ class App extends Component {
     }
 
     querySearch(term) {
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const proxyUrl = 'http://vss-cors.herokuapp.com/';
         const targetUrl_1 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}`;
         const targetUrl_2 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=a+${term}`;
         const targetUrl_3 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=b+${term}`;
