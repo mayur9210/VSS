@@ -21,12 +21,12 @@ class App extends Component {
     }
 
     querySearch(term) {
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const proxyUrl = 'https://vss.now.sh/';
         const targetUrl_1 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}`;
-        const targetUrl_2 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=a+${term}`;
-        const targetUrl_3 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=b+${term}`;
-        const targetUrl_4 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=c+${term}`;
-        const targetUrl_5 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=d+${term}`;
+        const targetUrl_2 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}+a`;
+        const targetUrl_3 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}+b`;
+        const targetUrl_4 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}+c`;
+        const targetUrl_5 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}+d`;
 
         fetch(proxyUrl + targetUrl_1)
             .then(respone => respone.json())
