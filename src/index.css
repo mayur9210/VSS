@@ -19,6 +19,21 @@
   padding-left: 13px;
 
 }
+
+.react-bs-container-header .table-bordered td, .react-bs-container-header .table-bordered th {
+  border-left-style: hidden !important;
+  border-right-style: hidden !important;
+  border-top-style: hidden !important;
+}
+
+
+
+.react-bs-container-body .table-bordered td, .react-bs-container-body .table-bordered th {
+  border-left-style: hidden !important;
+  border-right-style: hidden !important;
+}
+
+
 /*  this will override bootstrap class for column right padding for input boxes Danger!*/
 
 @media screen and (min-width: 800px) {
