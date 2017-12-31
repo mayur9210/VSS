@@ -58,7 +58,7 @@ class Pagination extends Component {
         currentPage = currentPage || 1;
 
         // default page size is 10
-        pageSize = pageSize || 30;
+        pageSize = pageSize || 100;
 
         // calculate total pages
         let totalPages = Math.ceil(totalItems / pageSize);
@@ -112,24 +112,24 @@ class Pagination extends Component {
         }
 
         return (
-            <ul className="pagination">
-                <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(1)}>First</a>
-                </li>
-                <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
+            <ul className="pagination col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                {/*<li className={pager.currentPage === 1 ? 'disabled' : ''}>*/}
+                    {/*<a onClick={() => this.setPage(1)}>First</a>*/}
+                {/*</li>*/}
+                <li className={pager.currentPage === 1 ? 'disabled page-item' : 'page-item'}>
+                    <a className="page-link" onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
                 </li>
                 {pager.pages.map((page, index) =>
-                    <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-                        <a onClick={() => this.setPage(page)}>{page}</a>
+                    <li key={index} className={pager.currentPage === page ? 'active page-item' : 'page-item'}>
+                        <a className="page-link" onClick={() => this.setPage(page)}>{page}</a>
                     </li>
                 )}
-                <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
+                <li className={pager.currentPage === pager.totalPages ? 'disabled page-item' : 'page-item'}>
+                    <a className="page-link" onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
                 </li>
-                <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
-                </li>
+                {/*<li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>*/}
+                    {/*<a onClick={() => this.setPage(pager.totalPages)}>Last</a>*/}
+                {/*</li>*/}
             </ul>
         );
     }

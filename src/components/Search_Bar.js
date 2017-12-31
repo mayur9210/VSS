@@ -12,7 +12,6 @@ class SearchBar extends Component {
             countryName: 'us',
             language: 'en'
         };
-
     }
 
     handleSubmit = (event) => {
@@ -212,32 +211,75 @@ class SearchBar extends Component {
                 }))
     };
 
-
     render() {
         return (
-            <div className="search-bar">
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text"
-                           value={this.state.term}
-                           onChange={ (event) => this.setState({term: event.target.value})}
-                           placeholder="Search"/>
 
-                    <select value={this.state.value}
-                            onChange={ (event) => this.setState({countryName: event.target.value})}>
-                        <option value="us">United States</option>
-                        <option value="uk">United Kingdom</option>
-                        <option value="in">India</option>
-                        <option value="jp">Japan</option>
-                    </select>
-                    <select value={this.state.value}
-                            onChange={ (event) => this.setState({language: event.target.value})}>
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                        <option value="de">German</option>
-                    </select>
-                    <button type="submit">Search</button>
-                </form>
+
+            <div className="content">
+
+                <ul className="nav nav-tabs" role="tablist">
+                    <li className="nav-item">
+                        <a className="nav-link active" data-toggle="tab" href="#home">Google</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" data-toggle="tab" href="#menu1">Yahoo</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" data-toggle="tab" href="#menu2">Bing</a>
+                    </li>
+                </ul>
+                <div className="tab-content">
+                    <div id="home" className="container tab-pane active"><br/>
+                        <h3>Google</h3>
+                    </div>
+                    <div id="menu1" className="container tab-pane fade"><br/>
+                        <h3>Yahoo</h3>
+                    </div>
+                    <div id="menu2" className="container tab-pane fade"><br/>
+                        <h3>Bing</h3>
+                    </div>
+                </div>
+
+                <div className="search-bar">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="row">
+                        <div className=".col col-xs-12 col-sm-6 col-md-3">
+                            <input type="text" className="form-control form-control-lg" aria-label="Default"
+                                   aria-describedby="inputGroup-sizing-default"
+                                   value={this.state.term}
+                                   onChange={ (event) => this.setState({term: event.target.value})}
+                                   placeholder="Search"/>
+                        </div>
+                        <div className=".col col-xs-12 col-sm-6 col-md-3">
+                            <select className="form-control form-control-lg" value={this.state.value}
+                                    onChange={ (event) => this.setState({countryName: event.target.value})}>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="in">India</option>
+                                <option value="jp">Japan</option>
+                            </select>
+                        </div>
+                        <div className=".col col-xs-12 col-sm-6 col-md-3">
+                            <select className="form-control form-control-lg" value={this.state.value}
+                                    onChange={ (event) => this.setState({language: event.target.value})}>
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="de">German</option>
+                            </select>
+                        </div>
+                        <div className=".col col-xs-12 col-md-1">
+                            <button type="submit" className="btn btn-primary btn-lg">
+                                  Submit
+                            </button>
+                        </div>
+                        </div>
+                    </form>
+
+                </div>
+
             </div>
+
+
         );
     }
 }

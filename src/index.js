@@ -19,67 +19,6 @@ class App extends Component {
         this.onChangePage = this.onChangePage.bind(this);
     }
 
-
-    componentDidMount() {
-        this.setState({
-            results: []
-        });
-    }
-
-
-    /* querySearch(term) {
-     const proxyUrl = 'https://vss.now.sh/';
-     const targetUrl_1 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}`;
-     const targetUrl_2 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}+a`;
-     const targetUrl_3 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}+b`;
-     const targetUrl_4 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}+c`;
-     const targetUrl_5 = `https://www.google.com/complete/search?output=search&client=chrome&hl=en&gl=us&q=${term}+d`;
-
-
-
-     fetch(proxyUrl + targetUrl_1)
-     .then(respone => respone.json())
-     .then(data => {
-     this.setState({
-     results: data[1]
-     });
-     }).then(() => {
-     fetch(proxyUrl + targetUrl_2)
-     .then((response) => response.json())
-     .then((responseData) => {
-     this.setState(prevState => ({
-     results: [...prevState.results, ...responseData[1]]
-     }))
-     })
-     }).then(() => {
-     fetch(proxyUrl + targetUrl_3)
-     .then((response) => response.json())
-     .then((responseData) => {
-     this.setState(prevState => ({
-     results: [...prevState.results, ...responseData[1]]
-     }))
-     })
-     }).then(() => {
-     fetch(proxyUrl + targetUrl_4)
-     .then((response) => response.json())
-     .then((responseData) => {
-     this.setState(prevState => ({
-     results: [...prevState.results, ...responseData[1]]
-     }))
-     })
-     }).then(() => {
-     fetch(proxyUrl + targetUrl_5)
-     .then((response) => response.json())
-     .then((responseData) => {
-     this.setState(prevState => ({
-     results: [...prevState.results, ...responseData[1]]
-     }))
-     })
-     })
-
-
-     }
-     */
     onChangePage(pageOfItems) {
         // update state with new page of items
         this.setState({pageOfItems: pageOfItems});
@@ -91,12 +30,10 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <div className="text-center">
+            <div className="container">
                     <SearchBar onSubmit={this.addSearch}/>
                     <SearchResult result={this.state.pageOfItems}/>
                     <Pagination items={this.state.results} onChangePage={this.onChangePage}/>
-                </div>
             </div>
         );
     }
