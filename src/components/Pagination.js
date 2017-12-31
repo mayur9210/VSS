@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
+import $ from 'jquery';
 const _ = require('lodash');
+
 
 // const propTypes = {
 //     items: PropTypes.array.isRequired,
@@ -25,7 +27,7 @@ class Pagination extends Component {
         }
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         // reset page if items array has changed
         if (this.props.items !== prevProps.items) {
             this.setPage(this.props.initialPage);
@@ -51,6 +53,10 @@ class Pagination extends Component {
 
         // call change page function in parent component
         this.props.onChangePage(pageOfItems);
+
+        $('body,html').animate({
+            scrollTop: 0
+        }, 800);
     }
 
     getPager(totalItems, currentPage, pageSize) {

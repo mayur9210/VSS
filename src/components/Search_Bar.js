@@ -230,20 +230,20 @@ class SearchBar extends Component {
                 </ul>
                 <div className="tab-content">
                     <div id="home" className="container tab-pane active"><br/>
-                        <h3>Google</h3>
+                        {/*<h3>Google</h3>*/}
                     </div>
                     <div id="menu1" className="container tab-pane fade"><br/>
-                        <h3>Yahoo</h3>
+                        {/*<h3>Yahoo</h3>*/}
                     </div>
                     <div id="menu2" className="container tab-pane fade"><br/>
-                        <h3>Bing</h3>
+                        {/*<h3>Bing</h3>*/}
                     </div>
                 </div>
 
                 <div className="search-bar">
                     <form onSubmit={this.handleSubmit}>
-                        <div className="row">
-                        <div className=".col col-xs-12 col-sm-6 col-md-3">
+                        <div className="row search-bar-background">
+                        <div className="col col-for-padding">
                             <input type="text" className="form-control form-control-lg" aria-label="Default"
                                    aria-describedby="inputGroup-sizing-default"
                                    value={this.state.term}
@@ -269,7 +269,7 @@ class SearchBar extends Component {
                         </div>
                         <div className=".col col-xs-12 col-md-1">
                             <button type="submit" className="btn btn-primary btn-lg">
-                                  Submit
+                                Go
                             </button>
                         </div>
                         </div>

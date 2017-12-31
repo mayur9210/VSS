@@ -67,7 +67,7 @@ export default class SearchResult extends React.Component {
 
         const selectRowProp = {
             mode: 'checkbox',
-            bgColor: 'pink',
+            bgColor: '#bcd5ef',
             clickToSelect: true,
             columnWidth: '60px',
         };
@@ -76,7 +76,7 @@ export default class SearchResult extends React.Component {
             <div className="container">
                 {products.length > 0 ?
                     <BootstrapTable ref='table' data={ products } selectRow={ selectRowProp } pagination={ false }
-                                    options={ this.options } version='4'>
+                                    options={ this.options } version='4' >
                         <TableHeaderColumn dataField='name' isKey={ true } dataSort>Keywords</TableHeaderColumn>
                     </BootstrapTable> : ''
                 }

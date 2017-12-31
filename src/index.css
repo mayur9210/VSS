@@ -1,12 +1,40 @@
 .search-bar {
-  margin: 20px 0 110px 0;
+  margin: 20px 0 100px 0;
   text-align: center;
 }
 
-/*.list-group-item {*/
-  /*cursor: pointer;*/
-/*}*/
 
-/*.list-group-item:hover {*/
-  /*background-color: #eee;*/
-/*}*/
+.search-bar-background {
+  padding: 10px 10px 10px 0;
+  background: #bcd5ef;
+}
+
+.table-bordered{
+  margin-bottom: 0;
+}
+
+.pagination {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding-left: 13px;
+
+}
+/*  this will override bootstrap class for column right padding for input boxes Danger!*/
+
+@media screen and (min-width: 800px) {
+  .col-sm-6 {
+    padding-right: 0;
+  }
+  .col-for-padding{
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .col-sm-6 {
+    padding-bottom: 5px;
+  }
+  .col-for-padding{
+    padding-bottom: 5px;
+  }
+}
